@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>ToDo.</title>
+        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <style media="screen" type="text/css">
+            /* Resets */
+            * {
+                margin: 0;
+                padding: 0;
+                border: none;
+                font-size:100%;
+                font-style: normal;
+            }
+            li {
+                list-style:none;
+            }
+            /* General */
+            body {
+                margin:auto;
+                width:640px;
+            }
+            h1 {
+
+            }
+            li {
+                color: #E12300;
+            }
+        </style>
+        <link rel="stylesheet" media="screen" type="text/css" href="./templates/css/design.css" />
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon114.png" />
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/blabs.js"></script>
+    </head>
+    <body id="todo">
+        {% for list_dict in todo_listing %}
+           <h1>{{ list_dict.list_object.title }}</h1>
+        <ul>
+            {% for item in list_dict.items_all %}
+            <li>{{item.title}}</li>
+            {% endfor %}
+        </ul>
+        <footer>
+            <span class="numberitems">Number of items: {{ list_dict.item_count }}</span><span>Completed: {{ list_dict.percent_complete }}%</span>
+            </footer>
+            {% endfor %}
+        </body>
+    </html>
