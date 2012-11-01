@@ -1,0 +1,23 @@
+/* Resets */
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size:100%;
+    font-style: normal;
+}
+li {
+    list-style:none;
+}
+/* General */
+body {
+    margin:auto;
+    width:640px;
+}
+h1 {
+    
+}
+li {
+    color: #E12300;
+}
+

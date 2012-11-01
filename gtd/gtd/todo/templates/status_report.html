@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>GetThingsDone.</title>
+        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <style media="screen" type="text/css">
+            /* Resets */
+            * {
+                margin: 0;
+                padding: 0;
+                border: none;
+                font-size:102%;
+                font-style: normal;
+            }
+            li {
+                list-style:none;
+            }
+            /* General */
+            body {
+                margin:auto;
+                width:320px;
+            }
+            header {
+                background-color: #E12300;
+                width: 100%;  
+            }
+            p {
+                color: white;
+                text-align: center;
+                padding: 8px 0;
+            }
+            h1 {
+                font-weight: normal;
+                font-family: Georgia, "Times New Roman", Times, serif;
+                font-size: 140%;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                text-align: center;
+                margin-top: 20px;
+            }
+            form {
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-top: 20px;
+            }
+            input, #add {
+                border: thin solid black;
+                display: block;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -khtml-border-radius: 2px;
+                border-radius: 2px;
+                width: 235px;
+                margin-bottom: 15px;
+                padding: 7px 5px;
+                float: left;
+            }
+            #add {
+                background: #F7F7F7;
+                font-family: Helvetica, Arial, sans-serif;
+                font-weight: bolder;
+                width: 30px;
+                cursor: pointer;
+                float: right;
+                text-align: center;
+            }
+            ul {
+                clear: both;
+                margin-top: 80px;
+            }
+            li {
+                color: #E12300;
+                margin-bottom: 5px;
+                border-bottom: thin solid #F7F7F7;
+                padding: 5px 10px;
+            }
+            footer {
+                position:absolute;
+                bottom:0px;
+                width: 320px;
+                display: block;
+                background-color: black;
+            } 
+        </style>
+    </head>
+    <body id="todo">
+        <header>
+            <p>Friday, November 2, 2012</p>
+        </header>
+        {% for list_dict in todo_listing %}
+           <h1>{{ list_dict.list_object.title }}</h1>
+        <form action="#" method="post" accept-charset="utf-8">   
+            <input type="text" name="name" value="">
+            <input type="submit" name="submit" value="+">
+        </form>
+        <ul>
+            {% for item in list_dict.items_all %}
+            <li>{{item.title}}</li>
+            {% endfor %}
+        </ul>
+        <footer>
+            <p>{{ list_dict.item_count }} items and {{ list_dict.percent_complete }} % are completed.</p>
+        </footer>
+        {% endfor %}
+    </body>
+</html>
